@@ -18,11 +18,11 @@ node {
                         sh 'cat Deployment.yml'
 //                          withEnv(["DOCKER_IMAGE_TAG=kranthikg/sharedlibimage:${BUILD_ID}"]) {
 //                            sh "sed -i 's+kranthikg/sharedlibimage.*+${DOCKER_IMAGE_TAG}+g' Deployment.yml"  }
-                        sh "sed -i 's+kranthikg/sharedlibimage.*+${DOCKERTAG}+g' Deployment.yml"
+                        sh "sed -i 's+kranthikg/sharedlibimage.*+kranthikg/sharedlibimage:${DOCKERTAG}+g' Deployment.yml"
                         sh 'cat Deployment.yml'
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
-                        sh "git push https://github.com/KranthiKG/Devops-Integration-SharedLib.git HEAD:main"
+                        sh "git push https://github.com/KranthiKG/SharedLib-ArgoCD-Manifestupdate.git HEAD:main"
       }
     }
     

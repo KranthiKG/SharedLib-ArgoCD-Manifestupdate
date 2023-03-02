@@ -16,9 +16,9 @@ node {
                         sh "git config user.name kranthikg"
                         //sh "git switch master"
                         sh "cat Deployment.yaml"
-#                         withEnv(["DOCKER_IMAGE_TAG=kranthikg/sharedlibimage:${BUILD_ID}"]) {
-#                           sh "sed -i 's+kranthikg/sharedlibimage.*+${DOCKERTAG}+g' Deployment.yml"  }
-                        sh "sed -i 's+kranthikg/sharedlibimage.*+${DOCKER_IMAGE_TAG}+g' Deployment.yml"
+//                          withEnv(["DOCKER_IMAGE_TAG=kranthikg/sharedlibimage:${BUILD_ID}"]) {
+//                            sh "sed -i 's+kranthikg/sharedlibimage.*+${DOCKER_IMAGE_TAG}+g' Deployment.yml"  }
+                        sh "sed -i 's+kranthikg/sharedlibimage.*+${DOCKERTAG}+g' Deployment.yml"
                         sh "cat Deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
